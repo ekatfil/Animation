@@ -9,7 +9,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.concurrent.TimeUnit;
 
-public class HelloKitty extends Canvas {
+public class Moon extends Canvas {
     static int width = 500, height=500;
 
     public void paint(Graphics g) {
@@ -24,6 +24,7 @@ public class HelloKitty extends Canvas {
             BufferedImage image = ImageIO.read(openConnection.getInputStream());
             int imageWidth = image.getWidth(), imageHeight=image.getHeight();
             int y = 0, x = 0;
+
             while (true) {
                 if (x>width||y>height) {
                     y = 0;
@@ -38,15 +39,15 @@ public class HelloKitty extends Canvas {
         } catch (IOException | InterruptedException e) {
             g.drawString("Ошибка", 10,10);
         }
-            }
+    }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Hello Kitty");
+        frame.setTitle("Moon");
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         frame.setBounds(dim.width/2-width/2,dim.height/2-height/2, width,height);
-        HelloKitty m=new HelloKitty();
+        Moon m=new Moon();
         frame.add(m);
         frame.setVisible(true);
     }
